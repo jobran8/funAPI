@@ -21,9 +21,7 @@
 					result = request.responseText;
 					info = JSON.parse(result);
 					strHTML = "<ul>";
-					info.forEach(function(person) { 
-					  strHTML += "<li>" + person.email + " : " + person.first_name + "</li>";
-					}) 
+					strHTML += "<li>" + info.data.first_name + " " + info.data.last_name + " : " + info.data.email+ "</li>";
 					strHTML += "</ul>";
 					document.getElementById("data").innerHTML =strHTML;  
 				} else if (request.readyState == 4 && request.status != 200) {
@@ -43,7 +41,7 @@
 
 <body onload="loadFile()">
 
-	<h1>User</h1>
+	<h1>User Info Requested</h1>
 	<div id="data">Loading...</div>
 </body>
 </html>
